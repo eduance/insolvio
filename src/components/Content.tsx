@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Section } from './Section';
 import { CTAButton } from './CTAButton';
+import { ContactSection } from './ContactSection';
 
 const paragraphs = [
   {
@@ -36,7 +37,7 @@ export function Content() {
             >
               {paragraph.text}
             </motion.p>
-            {index === paragraphs.length - 1 && <CTAButton />}
+            {index === paragraphs.length - 1 && <ContactSection />}
           </div>
         </Section>
       ))}
