@@ -8,21 +8,22 @@ import { ScrollIndicator } from './components/ScrollIndicator';
 export default function App() {
   return (
     <>
-      <Background />
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         className="relative"
       >
-        <section className="scroll-section relative min-h-screen flex flex-col items-center justify-center">
-          <div className="max-w-prose-narrow mx-auto py-16 relative">
+        <section className="scroll-section relative min-h-screen flex flex-col">
+          <div className="flex-grow flex flex-col items-center justify-center">
             <Hero />
           </div>
-          <div className="absolute bottom-12 w-full flex justify-center">
+
+          <div className="flex justify-center py-24">
             <ScrollIndicator />
           </div>
         </section>
+        
         <Content />
       </motion.div>
     </>
