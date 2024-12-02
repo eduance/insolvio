@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Background } from './components/Background';
 import { Hero } from './components/Hero';
 import { Content } from './components/Content';
 import { ScrollIndicator } from './components/ScrollIndicator';
