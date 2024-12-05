@@ -14,6 +14,24 @@
     font-family: 'Instrument Serif', serif;
     font-feature-settings: "salt" 1, "ss01" 1, "ss02" 1;
   }
+
+  /* Improve focus visibility */
+  :focus-visible {
+    outline: 2px solid theme('colors.brand.primary');
+    outline-offset: 2px;
+  }
+
+  /* Remove animations for users who prefer reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 }
 
 .scroll-section {
@@ -25,6 +43,18 @@ html {
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
   height: 100%;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 @layer utilities {
