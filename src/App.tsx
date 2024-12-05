@@ -1,30 +1,34 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Hero } from './components/Hero';
-import { Content } from './components/Content';
-import { ScrollIndicator } from './components/ScrollIndicator';
+import React, { Suspense } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
+import { LoadingScreen } from './components/LoadingScreen';
+import { withMinLoadingTime } from './utils/loading';
+
+// Lazy load components with minimum loading time
+const Home = React.lazy(() => withMinLoadingTime(import('./pages/Home')));
+const Promise = React.lazy(() => withMinLoadingTime(import('./pages/Promise')));
+const NotFound = React.lazy(() => withMinLoadingTime(import('./pages/NotFound')));
+
+function AnimatedRoutes() {
+  const location = useLocation();
+  
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<Home />} />
+        <Route path="/promise" element={<Promise />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </AnimatePresence>
+  );
+}
 
 export default function App() {
   return (
-    <>
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        className="relative"
-      >
-        <section className="scroll-section relative min-h-screen flex flex-col">
-          <div className="flex-grow flex flex-col items-center justify-center">
-            <Hero />
-          </div>
-
-          <div className="flex justify-center py-24">
-            <ScrollIndicator />
-          </div>
-        </section>
-        
-        <Content />
-      </motion.div>
-    </>
+    <Router>
+      <Suspense fallback={<LoadingScreen />}>
+        <AnimatedRoutes />
+      </Suspense>
+    </Router>
   );
 }
