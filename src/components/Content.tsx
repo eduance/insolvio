@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Section } from './Section';
-import { CTAButton } from './CTAButton';
 import { ContactSection } from './ContactSection';
 
 const paragraphs = [
