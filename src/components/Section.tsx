@@ -19,7 +19,7 @@ export function Section({ children, className = '', fullWidth = false }: Section
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 0.4 }}
-      className={`scroll-section relative min-h-screen flex items-center justify-center p-6 sm:p-8 lg:p-12 ${className}`}
+      className={`scroll-section relative min-h-[100dvh] flex items-center justify-center p-4 sm:p-6 lg:p-12 ${className}`}
     >
       <div className={fullWidth ? "w-full" : "w-full max-w-[68ch]"}>
         {children}
