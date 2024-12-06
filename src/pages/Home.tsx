@@ -16,12 +16,12 @@ export default function Home() {
         <Logo />
         <section 
           aria-label="Hero section"
-          className="scroll-section relative min-h-screen flex flex-col"
+          className="scroll-section relative min-h-[100dvh] flex flex-col"
         >
-          <div className="flex-grow flex flex-col items-center justify-center">
+          <div className="flex-grow flex flex-col items-center justify-center py-16 sm:py-20">
             <Hero />
           </div>
-          <div className="flex justify-center py-24">
+          <div className="flex justify-center pb-8 sm:pb-16">
             <ScrollIndicator />
           </div>
         </section>
