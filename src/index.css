@@ -8,6 +8,13 @@
   html {
     font-family: 'Instrument Sans', system-ui, sans-serif;
     scroll-behavior: smooth;
+    height: 100%;
+    height: 100dvh;
+  }
+  
+  body {
+    min-height: 100%;
+    min-height: 100dvh;
   }
   
   h1 {
@@ -42,7 +49,6 @@
 html {
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
-  height: 100%;
 }
 
 .sr-only {
